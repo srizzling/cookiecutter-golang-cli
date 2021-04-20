@@ -9,7 +9,6 @@
 
   <p align="center">
     {{cookiecutter.project_short_description}}
-    <a href="https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/issues">Request Feature</a>
   </p>
 </p>
 
@@ -17,11 +16,12 @@
 
 ## About The Project
 
+{{cookiecutter.project_long_description}}
+
 ### Built With
 
-- []()
-- []()
-- []()
+- [srizzling/cookiecutter-golang-cli](https://github.com/srizzling/cookiecutter-golang-cli)
+- [mitchelh/cli](https://github.com/mitchellh/cli)
 
 ## Getting Started
 
