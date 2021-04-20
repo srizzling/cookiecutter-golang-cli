@@ -9,13 +9,6 @@
 
   <p align="center">
     {{cookiecutter.project_short_description}}
-    <br />
-    <a href="https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    ·
-    <a href="https://github.com//{{cookiecutter.github_username}}/{{cookiecutter.project_name}}"/issues">Report Bug</a>
-    ·
     <a href="https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}/issues">Request Feature</a>
   </p>
 </p>
@@ -23,8 +16,6 @@
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 ### Built With
 
