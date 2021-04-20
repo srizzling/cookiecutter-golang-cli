@@ -45,4 +45,19 @@ function log_error {
 }
 
 # configure git
-log "configure git"
+log_info "initializing git"
+git init --quiet
+
+# commit the intial stuff with a proper emoji defaults
+log_info "committing intial repo stuff"
+git commit -am "🎉 inital project creation from template"
+
+log_info "configuring git hooks for using gitmoji"
+if command -v gitmoji >/dev/null; then
+    gitmoji -i
+else
+    log_warn "installing gitmoji"
+    # will break if npm isn't configured - if it is its okay - make the userfix it :P
+    npm i -g gitmoji
+    gitmoji -i
+fi
