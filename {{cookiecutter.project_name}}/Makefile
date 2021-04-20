@@ -33,7 +33,7 @@ windows:
 
 build-all: linux darwin windows
 
-build: clean
+build: clean vendor
 	@mkdir -p build && go build -o build/$(BINARY)
 
 run: build
@@ -56,8 +56,13 @@ coverage:
 	go tool cover -html=$(COVERAGE_PROFILE) -o $(COVERAGE_HTML)
 
 .PHONY: vendor
-vendor:
+vendor: ## Updates the vendoring directory.
+	@$(RM) go.sum
+	@$(RM) -r vendor
+	GO111MODULE=on go mod init || true
+	GO111MODULE=on go mod tidy
+	GO111MODULE=on go mod vendor
 
-
-prepare-release:
+## TODO(): prepare-release - https://github.com/momocow/semantic-release-gitmoji
+#prepare-release:
 
