@@ -1,0 +1,40 @@
+name: "Auto Build Example Repo"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  analyze:
+    name: Auto Build Example Repo
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Prepare Deploy Key
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.COOKIECUTTER_DEMO_DEPLOY_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+      - name: Checkout template repository
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: make deps
+      - name: Generate template project
+        run: make build
+      - name: Clone demo repo
+        run: git clone --no-checkout git@github.com:srizzling/cookiecutter-golang-example.git /tmp/cookiecutter-golang-example
+      - name: Move .git dir to generated project
+        run: mv /tmp/cookiecutter-golang-example/.git mygolangproject
+      - name: Commit changes
+        run: |
+          cd mygolangproject
+          git config --global user.email "venksriram@gmail.com"
+          git config --global user.name "Sriram Venkatesh"
+          git add .
+          git commit -m "👷 - Automatically refreshing project" || true
+          git push -u --force origin main || true

@@ -1,5 +1,6 @@
 {
     "github_username": "srizzling",
     "project_name": "mygolangproject",
-    "project_short_description": "A Golang project."
+    "project_short_description": "A Golang project.",
+    "configure_git": "n"
 }

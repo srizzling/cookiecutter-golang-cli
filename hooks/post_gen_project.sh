@@ -45,6 +45,7 @@ function log_error {
 }
 
 # configure git
+{% if cookiecutter.configure_git == "y" %}
 log_info "initializing git"
 git init --quiet
 
@@ -62,3 +63,4 @@ else
     npm i -g gitmoji
     gitmoji -i
 fi
+{% endif %}
