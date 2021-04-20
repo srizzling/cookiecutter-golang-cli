@@ -50,7 +50,8 @@ git init --quiet
 
 # commit the intial stuff with a proper emoji defaults
 log_info "committing intial repo stuff"
-git commit -am "🎉 inital project creation from template"
+git add .
+git commit -m "🎉 inital project creation from template"
 
 log_info "configuring git hooks for using gitmoji"
 if command -v gitmoji >/dev/null; then
