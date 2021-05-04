@@ -36,5 +36,5 @@ jobs:
           git config --global user.email "venksriram@gmail.com"
           git config --global user.name "Sriram Venkatesh"
           git add .
-          git commit -m "👷 - Automatically refreshing project" || true
+          git commit -m "✨ - Automatically refreshing project" || true
           git push -u --force origin main || true
