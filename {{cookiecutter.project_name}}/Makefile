@@ -68,4 +68,3 @@ prepare-release:
 	@npm install semantic-release-gitmoji
 	@npm install @semantic-release/changelog
 	@npx semantic-release --branches=main
-
